@@ -1,0 +1,35 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=127d19be4b3948586ff90ee80434a58ef37a58926c6f91841eb916f280fcf13d
+
+language: php
+
+sudo: false
+dist: trusty
+
+php:
+  - 7.0
+  - 7.1
+  - nightly
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+matrix:
+    include:
+        - php: 7.0
+          env: deps=low
+    fast_finish: true
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  - if [ "$deps" == "low" ]; then composer update --prefer-dist --prefer-lowest --prefer-stable; fi
+  - if [ "$deps" != "low" ]; then composer install --prefer-dist; fi
+
+script: composer test
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
