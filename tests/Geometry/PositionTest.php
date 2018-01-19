@@ -9,9 +9,16 @@
 namespace GeoJSON\Tests\Geometry;
 
 use GeoJSON\Geometry\Position;
-use PHPUnit\Framework\TestCase;
+use GeoJSON\Tests\AbstractTestCase;
 
-class PositionTest extends TestCase
+/**
+ * Class PositionTest.
+ *
+ * @package GeoJSON
+ * @author Lorenzo Marzullo <marzullo.lorenzo@gmail.com>
+ * @link https://github.com/lorenzomar/geojson
+ */
+class PositionTest extends AbstractTestCase
 {
     public function testLongitude()
     {

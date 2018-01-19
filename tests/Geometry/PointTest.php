@@ -10,10 +10,17 @@ namespace GeoJSON\Geometry\Tests;
 
 use GeoJSON\Geometry\Point;
 use GeoJSON\Geometry\Position;
+use GeoJSON\Tests\AbstractTestCase;
 use GeoJSON\Type;
-use PHPUnit\Framework\TestCase;
 
-class PointTest extends TestCase
+/**
+ * Class PointTest.
+ *
+ * @package GeoJSON
+ * @author Lorenzo Marzullo <marzullo.lorenzo@gmail.com>
+ * @link https://github.com/lorenzomar/geojson
+ */
+class PointTest extends AbstractTestCase
 {
     public function testType()
     {

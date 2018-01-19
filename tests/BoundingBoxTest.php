@@ -13,7 +13,6 @@ namespace GeoJSON\Tests;
 
 use GeoJSON\BoundingBox;
 use GeoJSON\Exception\InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
 
 /**
  * Class BoundingBoxTest.
@@ -22,7 +21,7 @@ use PHPUnit\Framework\TestCase;
  * @author Lorenzo Marzullo <marzullo.lorenzo@gmail.com>
  * @link https://github.com/lorenzomar/geojson
  */
-class BoundingBoxTest extends TestCase
+class BoundingBoxTest extends AbstractTestCase
 {
     public function testConstructNotNumericException()
     {

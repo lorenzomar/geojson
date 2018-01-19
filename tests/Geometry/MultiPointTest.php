@@ -14,8 +14,8 @@ namespace GeoJSON\Tests\Geometry;
 use GeoJSON\Geometry\MultiPoint;
 use GeoJSON\Geometry\Point;
 use GeoJSON\Geometry\Position;
+use GeoJSON\Tests\AbstractTestCase;
 use GeoJSON\Type;
-use PHPUnit\Framework\TestCase;
 
 /**
  * Class MultiPointTest.
@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
  * @author Lorenzo Marzullo <marzullo.lorenzo@gmail.com>
  * @link https://github.com/lorenzomar/geojson
  */
-class MultiPointTest extends TestCase
+class MultiPointTest extends AbstractTestCase
 {
     /**
      * @var Position[]
@@ -57,20 +57,14 @@ class MultiPointTest extends TestCase
     {
         $multiPoint = new MultiPoint($this->positions);
 
-        $property = (new \ReflectionClass(MultiPoint::class))->getProperty('coordinates');
-        $property->setAccessible(true);
-
-        $this->assertSame($this->positions, $property->getValue($multiPoint));
+        $this->assertSame($this->positions, $this->extractObjectProperty($multiPoint, 'coordinates'));
     }
 
     public function testConstructWithPoints()
     {
         $multiPoint = new MultiPoint($this->points);
 
-        $property = (new \ReflectionClass(MultiPoint::class))->getProperty('coordinates');
-        $property->setAccessible(true);
-
-        $this->assertSame($this->positions, $property->getValue($multiPoint));
+        $this->assertSame($this->positions, $this->extractObjectProperty($multiPoint, 'coordinates'));
     }
 
     public function testConstructWithMixedTypes()
@@ -83,10 +77,7 @@ class MultiPointTest extends TestCase
 
         $multiPoint = new MultiPoint($data);
 
-        $property = (new \ReflectionClass(MultiPoint::class))->getProperty('coordinates');
-        $property->setAccessible(true);
-
-        $this->assertSame($this->positions, $property->getValue($multiPoint));
+        $this->assertSame($this->positions, $this->extractObjectProperty($multiPoint, 'coordinates'));
     }
 
     public function testType()
