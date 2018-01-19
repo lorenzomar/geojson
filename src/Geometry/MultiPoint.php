@@ -71,16 +71,6 @@ class MultiPoint extends Geometry
      */
     public function equals(GeoJson $geoJson)
     {
-        $equals = parent::equals($geoJson) && count($this->coordinates) === count($geoJson->coordinates);
-
-        if (!$equals) {
-            return false;
-        }
-
-        foreach ($this->coordinates as $i => $position) {
-            $equals = $equals && $position->equals($geoJson->coordinates[$i]);
-        }
-
-        return $equals;
+        return parent::equals($geoJson) && $this->checkPositionSetsEquality($this->coordinates, $geoJson->coordinates);
     }
 }

@@ -22,5 +22,31 @@ use GeoJSON\GeoJson;
  */
 abstract class Geometry extends GeoJson
 {
+    /**
+     * checkPositionSetsEquality.
+     *
+     * @param Position[] $set1
+     * @param Position[] $set2
+     *
+     * @return bool
+     */
+    protected function checkPositionSetsEquality(array $set1, array $set2): bool
+    {
+        /** @var Position[] $set1 */
+        $set1 = array_values($set1);
+        /** @var Position[] $set2 */
+        $set2 = array_values($set2);
 
+        if (count($set1) !== count($set2)) {
+            return false;
+        }
+
+        foreach ($set1 as $k => $position) {
+            if (!$position->equals($set2[$k])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
