@@ -57,7 +57,7 @@ class MultiPoint extends Geometry
      *
      * @return Point[]
      */
-    public function points()
+    public function points(): array
     {
         return array_map(function (Position $position) {
             return new Point($position);
@@ -69,7 +69,7 @@ class MultiPoint extends Geometry
      *
      * @param GeoJson|MultiPoint $geoJson
      */
-    public function equals(GeoJson $geoJson)
+    public function equals(GeoJson $geoJson): bool
     {
         return parent::equals($geoJson) && $this->checkPositionSetsEquality($this->coordinates, $geoJson->coordinates);
     }

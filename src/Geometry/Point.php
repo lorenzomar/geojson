@@ -51,7 +51,7 @@ class Point extends Geometry
      *
      * @param GeoJson|Point $geoJson
      */
-    public function equals(GeoJson $geoJson)
+    public function equals(GeoJson $geoJson): bool
     {
         return parent::equals($geoJson) && $this->coordinates->equals($geoJson->coordinates);
     }

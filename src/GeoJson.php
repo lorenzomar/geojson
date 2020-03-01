@@ -63,7 +63,7 @@ abstract class GeoJson
      *
      * @return bool
      */
-    public function equals(GeoJson $geoJson)
+    public function equals(GeoJson $geoJson): bool
     {
         $equals = $this->type->is($geoJson->type);
 

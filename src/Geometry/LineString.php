@@ -62,7 +62,7 @@ class LineString extends Geometry
      *
      * @return Point[]
      */
-    public function points()
+    public function points(): array
     {
         return array_map(function (Position $position) {
             return new Point($position);
@@ -74,7 +74,7 @@ class LineString extends Geometry
      *
      * @param GeoJson|LineString $geoJson
      */
-    public function equals(GeoJson $geoJson)
+    public function equals(GeoJson $geoJson): bool
     {
         return parent::equals($geoJson) && $this->checkPositionSetsEquality($this->coordinates, $geoJson->coordinates);
     }

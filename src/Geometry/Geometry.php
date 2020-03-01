@@ -30,10 +30,15 @@ abstract class Geometry extends GeoJson
      *
      * @return bool
      */
-    protected function checkPositionSetsEquality(array $set1, array $set2): bool
+    protected function checkPositionSetsEquality($set1, $set2): bool
     {
+        if (!is_array($set1) || !is_array($set2)) {
+            return false;
+        }
+
         /** @var Position[] $set1 */
         $set1 = array_values($set1);
+
         /** @var Position[] $set2 */
         $set2 = array_values($set2);
 
