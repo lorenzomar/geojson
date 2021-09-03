@@ -29,7 +29,7 @@ $ composer require geojson/geojson
 Bugs and feature request are tracked on [GitHub](https://github.com/lorenzomar/geojson/issues)
 
 ### Author
-Lorenzo Marzullo - <marzullo.lorenzo@gmail.com><br />
+Lorenzo Marzullo<br />
 
 ### License
 GeoJSON is licensed under the MIT License - see the `LICENSE` file for details
